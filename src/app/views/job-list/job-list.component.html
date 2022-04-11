@@ -4,24 +4,20 @@
     <div class="alert alert-danger" role="alert" *ngIf="isError">
         Erro ao obter jobs!
     </div>
-    <div class="row justify-content-start">
-        <div class="col">
-            <button (click)="createJob()" class="btn btn-outline-dark mb-4">Criar Job</button>
-        </div>
-        <div class="col">
-            <div class="input-group mb-4">
-                <div class="col-auto me-2">
-                    <select [(ngModel)]="selectValue" class="form-select">
-                        <option value="user">Usuário</option>
-                        <option value="createdat">Data de criação</option>
-                    </select>
-                </div>
-                <input type="search" [(ngModel)]="searchValue" class="form-control" placeholder="Search...">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid mb-4">
+            <button (click)="createJob()" class="btn btn-outline-dark">Criar Job</button>
+            <div class="d-flex">
+                <select [(ngModel)]="selectValue" class="form-select me-2">
+                    <option value="user">Usuário</option>
+                    <option value="createdat">Data de criação</option>
+                </select>
+                <input type="search" [(ngModel)]="searchValue" class="form-control me-2" placeholder="Search...">
                 <button (click)="getSearch()" class="btn btn-primary">Pesquisar</button>
             </div>
         </div>
+    </nav>
 
-    </div>
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="jobData">
 

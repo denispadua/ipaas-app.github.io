@@ -7,11 +7,11 @@ import { UserListComponent } from './views/user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/user', pathMatch: 'full' },
-  { path: 'user', component: UserListComponent },
-  { path: 'user/create', component: UserFormComponent },
-  { path: 'user/:id', component: UserFormComponent },
-  { path: 'job', component: JobListComponent },
-  { path: 'job/create', component: JobFormComponent },
+  { path: 'user', component: UserListComponent, pathMatch: 'full' },
+  { path: 'user/create', component: UserFormComponent, pathMatch: 'full' },
+  { path: 'user/:id', component: UserFormComponent},
+  { path: 'job', component: JobListComponent, pathMatch: 'full' },
+  { path: 'job/create', component: JobFormComponent, pathMatch: 'full' },
   { path: 'job/:id', component: JobFormComponent },
 ];
 

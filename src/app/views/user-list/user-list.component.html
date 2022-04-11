@@ -4,23 +4,19 @@
     <div class="alert alert-danger" role="alert" *ngIf="isError">
         Erro ao obter usuários!
     </div>
-    <div class="row">
-        <div class="col">
-            <button (click)="createUser()" class="btn btn-outline-dark mb-4">Criar usuário</button>
-        </div>
-        <div class="col">
-            <div class="input-group mb-4">
-                <div class="col-auto me-2">
-                    <select [(ngModel)]="selectValue" class="form-select">
-                        <option value="name">Nome</option>
-                        <option value="createdat">Data de criação</option>
-                    </select>
-                </div>
-                <input type="search" [(ngModel)]="searchValue" class="form-control" placeholder="Search...">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid mb-4">
+            <button (click)="createUser()" class="btn btn-outline-dark">Criar usuário</button>
+            <div class="d-flex">
+                <select [(ngModel)]="selectValue" class="form-select me-2">
+                    <option value="name">Nome</option>
+                    <option value="createdat">Data de criação</option>
+                </select>
+                <input type="search" [(ngModel)]="searchValue" class="form-control me-2" placeholder="Search...">
                 <button (click)="getSearch()" class="btn btn-primary">Pesquisar</button>
             </div>
         </div>
-    </div>
+    </nav>
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="userData">
 
