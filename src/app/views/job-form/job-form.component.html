@@ -1,0 +1,63 @@
+<app-header [text]=" id ? 'Editar job' : 'Cadastrar job'"></app-header>
+
+<div class="container">
+    <div class="alert alert-success" role="alert" *ngIf="isSucess">
+        Operação realizada com sucesso!
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="isError">
+        Erro ao realizar operação!
+    </div>
+    <div class="row justify-content-center">
+        <div class="col">
+            <form [formGroup]="jobForm" (submit)="onSubmit()">
+
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input class="form-control" type="text" placeholder="Nome" formControlName="name" />
+                </div>
+
+                <div class="form-group">
+                    <label>Usuário</label>
+                    <input class="form-control" type="text" placeholder="Usuário" formControlName="user" />
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select select class="form-select" id="status" formControlName="status">
+                        <option value="Active">Ativo</option>
+                        <option value="Inactive">Inativo</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de recorrência</label>
+                    <select select class="form-select" id="recurrence" formControlName="recurrenceType">
+                        <option value="Interval">Intervalo</option>
+                        <option value="Fixed time">Horário fixo</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Valor da recorrência</label>
+                    <input class="form-control" type="text" placeholder="Valor da recorrência"
+                        formControlName="recurrenceValue" />
+                </div>
+
+                <div class="form-group" *ngIf="this.jobForm.value.recurrenceType === 'Interval'">
+                    <label>Intervalo</label>
+                    <input class="form-control" type="text" placeholder="Intervalo" formControlName="interval" />
+                </div>
+
+                <div class="form-group" *ngIf="this.jobForm.value.recurrenceType === 'Fixed time'">
+                    <label>Horário</label>
+                    <input class="form-control" type="text" placeholder="Horário" formControlName="time" />
+                </div>
+
+                <a routerLink="/job" class="btn btn-secondary mt-2 me-2">Voltar</a>
+                <input class="btn btn-primary mt-2" type="submit" />
+
+            </form>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
