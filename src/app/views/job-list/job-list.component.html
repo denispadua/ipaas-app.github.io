@@ -17,7 +17,7 @@
             </div>
         </div>
     </nav>
-
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="jobData">
 

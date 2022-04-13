@@ -19,6 +19,7 @@ export class UserListComponent implements OnInit {
   searchValue!: String;
   isError: Boolean = false;
   filter!: string;
+  isLoading: Boolean = true;
 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -31,8 +32,10 @@ export class UserListComponent implements OnInit {
       this.userData = new MatTableDataSource(data.user);
       this.userData.paginator = this.paginator;
       this.totalRows = data.size;
+      this.isLoading = false;
     },(e)=>{
       this.isError = true;
+      this.isLoading = false;
     });
   }
 

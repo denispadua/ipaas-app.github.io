@@ -1,9 +1,11 @@
 <app-header [text]="'Usuários'"></app-header>
 
+
 <div class="container">
     <div class="alert alert-danger" role="alert" *ngIf="isError">
         Erro ao obter usuários!
     </div>
+
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid mb-4">
             <button (click)="createUser()" class="btn btn-outline-dark">Criar usuário</button>
@@ -17,6 +19,7 @@
             </div>
         </div>
     </nav>
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="userData">
 
